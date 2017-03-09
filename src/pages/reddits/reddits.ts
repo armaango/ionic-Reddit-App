@@ -13,10 +13,20 @@ export class RedditsPage {
   constructor(public navCtrl: NavController,private redditService:RedditService) {
     this.getDefaults();
   }
-  getDefaults(){
-      this.category = 'sports';
-      this.limit = 10;
-  }
+  getDefaults() {
+        if (localStorage.getItem('category') != null) {
+            this.category = localStorage.getItem('category');
+        }
+        else {
+            this.category = 'sports';
+        }
+        if (localStorage.getItem('limit') != null) {
+            this.limit = localStorage.getItem('limit');
+        }
+        else {
+            this.limit = 10;
+        }
+    }
 
   ngOnInit(){
       this.getPosts(this.category,this.limit);

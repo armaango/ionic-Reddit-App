@@ -21,7 +21,7 @@ export class SettingsPage {
             this.category = 'sports';
         }
         if (localStorage.getItem('limit') != null) {
-            this.category = localStorage.getItem('limit');
+            this.limit = localStorage.getItem('limit');
         }
         else {
             this.limit = 10;
